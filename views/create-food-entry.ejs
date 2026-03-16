@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Food Entry</title>
+    </head>
+    <body>
+        <h1>Add Food Entry</h1>
+        <form method="POST">
+            <div>
+                <label>Date and Time</label>
+                <input type="datetime-local" name="dateTime">
+            </div>
+            <div>
+                <label>Food Name</label>
+                <input type="text" name="foodName">
+            </div>
+            <div>
+                <label>Calories</label>
+                <input type="number" name="calories">
+            </div>
+
+            <div>
+                <label>Meal:</label>
+                <input type="radio" name="meal" value="breakfast">
+                <label>Breakfast</label>
+                <input type="radio" name="meal" value="lunch">
+                <label>Lunch</label>
+                <input type="radio" name="meal" value="dinner">
+                <label>Dinner</label>
+                <input type="radio" name="meal" value="snack">
+                <label>Snack</label>
+            </div>
+
+            <div>
+                <label>Tags:</label>
+                <input type="checkbox" name="tags[]" value="vegan">
+                <label>Vegan</label>
+                <input type="checkbox" name="tags[]" value="vegetarian">
+                <label>Vegetarian</label>
+                <input type="checkbox" name="tags[]" value="gluten-free">
+                <label>Gluten-Free</label>
+                <input type="checkbox" name="tags[]" value="low-carb">
+                <label>Low Carb</label>
+                <input type="checkbox" name="tags[]" value="low-fat">
+                <label>Low Fat</label>
+            </div>
+
+            <div>
+                <label>Serving Size</label>
+                <input type="number" name="servingSize">
+                <label>Unit</label>
+                <select name="unit">
+                    <option value="serving">Serving</option>
+                    <option value="gram">Grams</option>
+                    <option value="ounce">Ounces</option>
+                    <option value="pound">Pounds</option>
+                </select>
+            </div>
+
+            <button type="submit">Add Food Entry</button>
+        </form>
+    </body>
+</html>
