@@ -1,6 +1,6 @@
 use cico_tracker;
 
-INSERT INTO meals (name) VALUE
+INSERT INTO meals (name) VALUES
     ("N/A"),
     ("Breakfast"),
     ("Lunch"),

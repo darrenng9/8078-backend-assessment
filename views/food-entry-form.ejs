@@ -11,56 +11,60 @@
 
 <body>
     <div class="container">
-            <div class="mt-3">
-                <label>Date and Time</label>
-                <input type="datetime-local" name="dateTime">
-            </div>
-            <div>
-                <label>Food Name</label>
-                <input type="text" name="foodName">
-            </div>
-            <div>
-                <label>Calories</label>
-                <input type="number" name="calories">
-            </div>
+        <div class="mt-3">
+            <label>Date and Time</label>
+            <input type="datetime-local" name="dateTime" value="<%= foodEntry.dateTime ? foodEntry.dateTime : '' %>">
+        </div>
+        <div>
+            <label>Food Name</label>
+            <input type="text" name="foodName" value="<%= foodEntry.foodName ? foodEntry.foodName : '' %>">
+        </div>
+        <div>
+            <label>Calories</label>
+            <input type="number" name="calories" value="<%= foodEntry.calories ? foodEntry.calories : '' %>">
+        </div>
 
-            <div class="mt-3">
-                <label>Meal:</label>
-                <input type="radio" name="meal" value="breakfast">
-                <label>Breakfast</label>
-                <input type="radio" name="meal" value="lunch">
-                <label>Lunch</label>
-                <input type="radio" name="meal" value="dinner">
-                <label>Dinner</label>
-                <input type="radio" name="meal" value="snack">
-                <label>Snack</label>
-            </div>
+        <div class="mt-3">
+            <label>Meal:</label>
+            <% for (let m of meals) { %>
+                <input type="radio" name="meal_id" value="<%= m.id %>" <%=foodEntry?.meal_id==m.id ? "checked" : "" %>
+                />
+                <label>
+                    <%= m.name %>
+                </label>
+                <% } %>
+        </div>
 
-            <div class="mt-3">
-                <label>Tags:</label>
-                <input type="checkbox" name="tags[]" value="vegan">
-                <label>Vegan</label>
-                <input type="checkbox" name="tags[]" value="vegetarian">
-                <label>Vegetarian</label>
-                <input type="checkbox" name="tags[]" value="gluten-free">
-                <label>Gluten-Free</label>
-                <input type="checkbox" name="tags[]" value="low-carb">
-                <label>Low Carb</label>
-                <input type="checkbox" name="tags[]" value="low-fat">
-                <label>Low Fat</label>
-            </div>
+        <div class="mt-3">
+            <label>Tags:</label>
+            <input type="checkbox" name="tags" value="vegan" <%=foodEntry.tags && foodEntry.tags.includes("vegan")
+                ? "checked" : "" %>>
+            <label>Vegan</label>
+            <input type="checkbox" name="tags" value="vegetarian" <%=foodEntry.tags &&
+                foodEntry.tags.includes("vegetarian") ? "checked" : "" %>>
+            <label>Vegetarian</label>
+            <input type="checkbox" name="tags" value="gluten-free" <%=foodEntry.tags &&
+                foodEntry.tags.includes("gluten-free") ? "checked" : "" %>>
+            <label>Gluten-Free</label>
+            <input type="checkbox" name="tags" value="low-carb" <%=foodEntry.tags && foodEntry.tags.includes("low-carb")
+                ? "checked" : "" %>>
+            <label>Low Carb</label>
+            <input type="checkbox" name="tags" value="low-fat" <%=foodEntry.tags && foodEntry.tags.includes("low-fat")
+                ? "checked" : "" %>>
+            <label>Low Fat</label>
+        </div>
 
-            <div class="mt-3">
-                <label>Serving Size</label>
-                <input type="number" name="servingSize">
-                <label>Unit</label>
-                <select name="unit">
-                    <option value="serving">Serving</option>
-                    <option value="gram">Grams</option>
-                    <option value="ounce">Ounces</option>
-                    <option value="pound">Pounds</option>
-                </select>
-            </div>
+        <div class="mt-3">
+            <label>Serving Size</label>
+            <input type="number" name="servingSize" value="<%= foodEntry.servingSize ? foodEntry.servingSize : '' %>">
+            <label>Unit</label>
+            <select name="unit">
+                <option value="serving" <%=foodEntry.unit=="serving" ? "selected" : "" %>>Serving</option>
+                <option value="gram" <%=foodEntry.unit=="gram" ? "selected" : "" %>Grams</option>
+                <option value="ounce" <%=foodEntry.unit=="ounce" ? "selected" : "" %>>Ounces</option>
+                <option value="pound" <%=foodEntry.unit=="pound" ? "selected" : "" %>>Pounds</option>
+            </select>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>

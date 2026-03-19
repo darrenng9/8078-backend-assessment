@@ -12,7 +12,10 @@
 <body>
     <h1>Add Food Entry</h1>
     <form method="POST">
-        <%- include("food-entry-form") %>
+        <%- include("food-entry-form", {
+            foodEntry: {},
+            meals: meals
+        }) %>
             <button type="submit">Add Food Entry</button>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
