@@ -27,28 +27,28 @@
             <% foodEntries.forEach(function(foodEntry) { %>
                 <tr>
                     <td>
-                        <%= foodEntry.foodEntries.dateTime %>
+                        <%= foodEntry.food_entries.dateTime %>
                     </td>
                     <td>
-                        <%= foodEntry.foodEntries.foodName %>
+                        <%= foodEntry.food_entries.foodName %>
                     </td>
                     <td>
-                        <%= foodEntry.foodEntries.calories %>
+                        <%= foodEntry.food_entries.calories %>
                     </td>
                     <td>
-                        <%= foodEntry.foodEntries.meal_id %>
+                        <%= foodEntry.meals.name %>
                     </td>
                     <td>
-                        <%= foodEntry.foodEntries.tags %>
+                        <%= foodEntry.food_entries.tags %>
                     </td>
                     <td>
-                        <%= foodEntry.foodEntries.servingSize %>
+                        <%= foodEntry.food_entries.servingSize %>
                     </td>
                     <td>
-                        <%= foodEntry.foodEntries.unit %>
+                        <%= foodEntry.food_entries.unit %>
                     </td>
-                    <td><a href="/food-entry/<%= foodEntry.foodEntries.id %>/edit" class="btn btn-warning">Edit</a></td>
-                    <td><a href="/food-entry/<%= foodEntry.foodEntries.id %>/delete" class="btn btn-danger">Delete</a>
+                    <td><a href="/food-entry/<%= foodEntry.food_entries.id %>/edit" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/food-entry/<%= foodEntry.food_entries.id %>/delete" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 <% }) %>

@@ -6,7 +6,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const port = 3000;
+// const port = 3000;
+const port = 8080;
 
 const dbConfig = {
     host: process.env.DB_HOST,
@@ -40,20 +41,21 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-app.get("/", async (req, res) => {
-    res.send("Hello World");
-});
 // app.get("/", async (req, res) => {
-//     try {
-//         const sql = `SELECT * FROM food_entries JOIN meals ON food_entries.meal_id = meals.id`;
-//         const results = await dbConnection.execute({ sql, nestTables: true });
-//         const [rows] = results[0];
-//         res.render("index", { foodEntries: rows });
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).send("Server error: " + err.message);
-//     }
+//     res.send("Hello World");
 // });
+
+app.get("/", async (req, res) => {
+    try {
+        const sql = `SELECT * FROM food_entries JOIN meals ON food_entries.meal_id = meals.id`;
+        const results = await dbConnection.execute({ sql, nestTables: true });
+        const rows = results[0];
+        res.render("index", { foodEntries: rows });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Server error: " + err.message);
+    }
+});
 
 app.get("/food-entries", async (req, res) => {
     try {
