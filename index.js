@@ -116,7 +116,7 @@ app.get("/food-entry/:id/edit", async (req, res) => {
         res.status(500).send("Server error: " + err.message);
     }
 });
-
+    
 app.post("/food-entry/:id/edit", async (req, res) => {
     try {
         let { dateTime, foodName, calories, meal_id, tags, servingSize, unit } = req.body;
