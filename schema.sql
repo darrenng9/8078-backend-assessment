@@ -1,4 +1,3 @@
-CREATE DATABASE cico_tracker;
 USE cico_tracker;
 
 CREATE TABLE food_entries (

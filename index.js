@@ -54,7 +54,7 @@ app.post("/food-entry/:id/edit", async (req, res ) => {
     if (!tags) {
         tags = [];
     }
-    const query = "UPDATE food_entries SET dateTime = ?, foodName = ?, calories = ?, meal = ?, tags = ?, servingSize = ?, unit = ?, WHERE id = ?";
+    const query = "UPDATE food_entries SET dateTime = ?, foodName = ?, calories = ?, meal = ?, tags = ?, servingSize = ?, unit = ? WHERE id = ?";
     const values = [dateTime, foodName, calories, meal, JSON.stringify(tags), servingSize, unit, req.params.id];
     await dbConnection.execute(query, values);
     res.redirect("/");
